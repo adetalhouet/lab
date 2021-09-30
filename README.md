@@ -1,1 +1,3 @@
-![Foo](https://raw.githubusercontent.com/adetalhouet/lab/doc/high-level-arch.png)
+# Architecture
+
+![Architecture](https://raw.githubusercontent.com/adetalhouet/lab/main/doc/high-level-arch.png)
