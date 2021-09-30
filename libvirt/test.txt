@@ -1,0 +1,19 @@
+
+
+
+----
+
+virt-install --import --name centos \
+--memory 1024 --vcpus 1 --cpu host \
+--disk /var/lib/libvirt/images/centos8-vm1/centos8-vm1.qcow2,format=qcow2,bus=virtio \
+--disk /var/lib/libvirt/images/centos8-vm1/cidata.iso,device=cdrom \
+--network network=v4000 \
+--os-variant=rhel8.1 \
+--graphics spice \
+--noautoconsole
+
+---
+
+
+
+

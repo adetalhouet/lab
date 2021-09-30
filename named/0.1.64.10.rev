@@ -1,0 +1,23 @@
+// vi /etc/named/0.1.64.10.rev
+
+$TTL 1W
+@	IN	SOA	ns1.sandbox1091.opentlc.com.	root (
+			2019070700	; serial
+			3H		; refresh (3 hours)
+			30M		; retry (30 minutes)
+			2W		; expiry (2 weeks)
+			1W )		; minimum (1 week)
+	IN	NS	ns1.sandbox1091.opentlc.com.
+;
+;
+101.1.64.10.in-addr.arpa.	IN	PTR	master1.hetzner.sandbox1091.opentlc.com.
+102.1.64.10.in-addr.arpa.	IN	PTR	master2.hetzner.sandbox1091.opentlc.com.
+103.1.64.10.in-addr.arpa.	IN	PTR	master3.hetzner.sandbox1091.opentlc.com.
+;
+51.1.64.10.in-addr.arpa.	IN	PTR	worker1.hetzner.sandbox1091.opentlc.com.
+52.1.64.10.in-addr.arpa.	IN	PTR	worker2.hetzner.sandbox1091.opentlc.com.
+53.1.64.10.in-addr.arpa.	IN	PTR	worker3.hetzner.sandbox1091.opentlc.com.
+54.1.64.10.in-addr.arpa.	IN	PTR	worker4.hetzner.sandbox1091.opentlc.com.
+55.1.64.10.in-addr.arpa.	IN	PTR	worker5.hetzner.sandbox1091.opentlc.com.
+;
+;EOF

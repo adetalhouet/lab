@@ -1,0 +1,30 @@
+// vi /etc/named/sandbox1091.opentlc.com.zone
+
+$TTL 1W
+@	IN	SOA	ns1.sandbox1091.opentlc.com.	root (
+			2019070700	; serial
+			3H		; refresh (3 hours)
+			30M		; retry (30 minutes)
+			2W		; expiry (2 weeks)
+			1W )		; minimum (1 week)
+	IN	NS	ns1.sandbox1091.opentlc.com.
+;
+;
+api.hetzner.sandbox1091.opentlc.com.		IN	A	135.181.134.223
+api-int.hetzner.sandbox1091.opentlc.com.	IN	A	135.181.134.223
+;
+*.apps.hetzner.sandbox1091.opentlc.com.	IN	A	135.181.134.223
+;
+ns1.sandbox1091.opentlc.com.		IN	A	10.64.1.3
+;
+master1.hetzner.sandbox1091.opentlc.com.	IN	A	10.64.1.101
+master2.hetzner.sandbox1091.opentlc.com.	IN	A	10.64.1.102
+master3.hetzner.sandbox1091.opentlc.com.	IN	A	10.64.1.103
+;
+worker1.hetzner.sandbox1091.opentlc.com.	IN	A	10.64.1.51
+worker2.hetzner.sandbox1091.opentlc.com.	IN	A	10.64.1.52
+worker3.hetzner.sandbox1091.opentlc.com.	IN	A	10.64.1.53
+worker4.hetzner.sandbox1091.opentlc.com.	IN	A	10.64.1.54
+worker5.hetzner.sandbox1091.opentlc.com.	IN	A	10.64.1.55
+;
+;EOF

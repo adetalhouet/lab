@@ -1,0 +1,1 @@
+![Foo](https://raw.githubusercontent.com/adetalhouet/lab/doc/high-level-arch.png)
