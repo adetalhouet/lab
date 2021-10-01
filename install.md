@@ -170,6 +170,25 @@ virsh start master1
 virsh start master2
 virsh start master3
 
+virsh destroy worker1
+virsh destroy worker3
+virsh destroy worker2
+virsh undefine worker1
+virsh undefine worker3
+virsh undefine worker2
+qemu-img create -f qcow2 /var/lib/libvirt/images/worker1.qcow2 200G
+qemu-img create -f qcow2 /var/lib/libvirt/images/worker2.qcow2 200G
+qemu-img create -f qcow2 /var/lib/libvirt/images/worker3.qcow2 200G
+qemu-img create -f raw /var/lib/libvirt/images/worker1-ocs.qcow2 500G
+qemu-img create -f raw /var/lib/libvirt/images/worker2-ocs.qcow2 500G
+qemu-img create -f raw /var/lib/libvirt/images/worker3-ocs.qcow2 500G
+virsh define worker3.yaml
+virsh define worker2.yaml
+virsh define worker1.yaml
+virsh start worker1
+virsh start worker2
+virsh start worker3
+
 virsh destroy worker4
 virsh undefine worker4
 rm -rf /var/lib/libvirt/images/worker4.qcow2
@@ -191,24 +210,6 @@ qemu-img create -f qcow2 /var/lib/libvirt/images/worker6.qcow2 200G
 virsh define worker6.yaml
 virsh start worker6
 
-virsh destroy worker1
-virsh destroy worker3
-virsh destroy worker2
-virsh undefine worker1
-virsh undefine worker3
-virsh undefine worker2
-qemu-img create -f qcow2 /var/lib/libvirt/images/worker1.qcow2 200G
-qemu-img create -f qcow2 /var/lib/libvirt/images/worker2.qcow2 200G
-qemu-img create -f qcow2 /var/lib/libvirt/images/worker3.qcow2 200G
-qemu-img create -f raw /var/lib/libvirt/images/worker1-ocs.qcow2 500G
-qemu-img create -f raw /var/lib/libvirt/images/worker2-ocs.qcow2 500G
-qemu-img create -f raw /var/lib/libvirt/images/worker3-ocs.qcow2 500G
-virsh define worker3.yaml
-virsh define worker2.yaml
-virsh define worker1.yaml
-virsh start worker1
-virsh start worker2
-virsh start worker3
 ~~~
 ##### Backup /etc/resolv.conf
 ~~~

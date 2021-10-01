@@ -10,10 +10,10 @@ $TTL 1W
 	IN	NS	ns1.sandbox1091.opentlc.com.
 ;
 ;
-api.hetzner.sandbox1091.opentlc.com.		IN	A	135.181.134.223
-api-int.hetzner.sandbox1091.opentlc.com.	IN	A	135.181.134.223
+api.hetzner.sandbox1091.opentlc.com.		IN	A	10.64.1.67
+api-int.hetzner.sandbox1091.opentlc.com.	IN	A	10.64.1.67
 ;
-*.apps.hetzner.sandbox1091.opentlc.com.	IN	A	135.181.134.223
+*.apps.hetzner.sandbox1091.opentlc.com.	IN	A	10.64.1.68
 ;
 ns1.sandbox1091.opentlc.com.		IN	A	10.64.1.3
 ;
