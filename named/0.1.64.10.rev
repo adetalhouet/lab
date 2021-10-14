@@ -1,13 +1,13 @@
 // vi /etc/named/0.1.64.10.rev
 
 $TTL 1W
-@	IN	SOA	ns1.sandbox1091.opentlc.com.	root (
+@	IN	SOA	ns1.hetzner.sandbox1091.opentlc.com.	root (
 			2019070700	; serial
 			3H		; refresh (3 hours)
 			30M		; retry (30 minutes)
 			2W		; expiry (2 weeks)
 			1W )		; minimum (1 week)
-	IN	NS	ns1.sandbox1091.opentlc.com.
+	IN	NS	ns1.hetzner.sandbox1091.opentlc.com.
 ;
 67.1.64.10.in-addr.arpa.	IN	PTR	api.hetzner.sandbox1091.opentlc.com.
 67.1.64.10.in-addr.arpa.	IN	PTR	api-int.hetzner.sandbox1091.opentlc.com.
