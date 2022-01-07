@@ -1,0 +1,16 @@
+
+vi /etc/sysconfig/network-scripts/ifcfg-eno1np0
+DEVICE=eno1np0
+BOOTPROTO=none
+ONBOOT=yes
+BRIDGE=br-ext
+
+vi /etc/sysconfig/network-scripts/ifcfg-br-ext
+DEVICE=br-ext
+TYPE=Bridge
+BOOTPROTO=static
+ONBOOT=yes
+IPADDR=10.0.0.248
+NETWORK=10.0.0.0
+PREFIX=24
+DNS1=127.0.0.1

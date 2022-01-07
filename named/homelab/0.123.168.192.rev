@@ -1,0 +1,25 @@
+$TTL 1W
+@	IN	SOA	ns1.adetalhouet.ca.	root (
+			2019070700	; serial
+			3H		; refresh (3 hours)
+			30M		; retry (30 minutes)
+			2W		; expiry (2 weeks)
+			1W )		; minimum (1 week)
+	IN	NS	ns1.adetalhouet.ca.
+;
+187.123.168.192.in-addr.arpa.   IN      PTR     api.ca-regina.adetalhouet.ca.
+187.123.168.192.in-addr.arpa.   IN      PTR     api-int.ca-regina.adetalhouet.ca.
+;
+253.123.168.192.in-addr.arpa.   IN      PTR     api.ca-regina.adetalhouet.ca.
+253.123.168.192.in-addr.arpa.   IN      PTR     api-int.ca-regina.adetalhouet.ca.
+;
+142.123.168.192.in-addr.arpa.   IN      PTR     api.ca-montreal.adetalhouet.ca.
+142.123.168.192.in-addr.arpa.   IN      PTR     api-int.ca-montreal.adetalhouet.ca.
+;
+142.123.168.192.in-addr.arpa.	IN	PTR	ca-montreal-node1.ca-montreal.adetalhouet.ca.
+;
+85.123.168.192.in-addr.arpa.	IN	PTR	ca-toronto-node1.ca-toronto.adetalhouet.ca.
+;
+85.123.168.192.in-addr.arpa.   IN      PTR     api.ca-toronto.adetalhouet.ca.
+85.123.168.192.in-addr.arpa.   IN      PTR     api-int.ca-toronto.adetalhouet.ca.
+;

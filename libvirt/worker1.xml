@@ -1,5 +1,5 @@
 <domain type="kvm">
-  <name>worker3</name>
+  <name>worker1</name>
   <metadata>
     <libosinfo:libosinfo xmlns:libosinfo="http://libosinfo.org/xmlns/libvirt/domain/1.0">
       <libosinfo:os id="http://fedoraproject.org/coreos/stable"/>
@@ -44,18 +44,18 @@
     </disk>
     <disk type="file" device="disk">
       <driver name="qemu" type="qcow2"/>
-      <source file="/var/lib/libvirt/images/worker3.qcow2"/>
+      <source file="/var/lib/libvirt/images/worker1.qcow2"/>
       <target dev="vda" bus="virtio"/>
     </disk>
     <disk type="file" device="disk">
       <driver name="qemu" type="raw"/>
-      <source file="/var/lib/libvirt/images/worker3-ocs.qcow2"/>
+      <source file="/var/lib/libvirt/images/worker1-ocs.qcow2"/>
       <target dev="vdb" bus="virtio"/>
     </disk>
     <controller type="usb" index="0" model="qemu-xhci" ports="15"/>
     <interface type="network">
-      <mac address='52:54:00:6c:3c:53'/>
-      <source network="br-int"/>
+      <mac address='02:04:00:00:00:69'/>
+      <source network="ocp-cluster1"/>
       <model type="virtio"/>
     </interface>
     <console type="pty"/>

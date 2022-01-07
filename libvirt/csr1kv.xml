@@ -1,5 +1,5 @@
 <domain type="kvm">
-  <name>master1</name>
+  <name>csr1000v</name>
   <metadata>
     <libosinfo:libosinfo xmlns:libosinfo="http://libosinfo.org/xmlns/libvirt/domain/1.0">
       <libosinfo:os id="http://fedoraproject.org/coreos/stable"/>
@@ -31,26 +31,22 @@
     <suspend-to-mem enabled="no"/>
     <suspend-to-disk enabled="no"/>
   </pm>
-  <memoryBacking>
-    <hugepages/>
-  </memoryBacking>
   <devices>
     <emulator>/usr/libexec/qemu-kvm</emulator>
     <disk type='file' device='cdrom'>
       <driver name='qemu' type='raw'/>
-      <source file='/var/lib/libvirt/boot/discovery_image_hetzner.iso' index='1'/>
+      <source file='/var/lib/libvirt/images/csr1000v-universalk9.16.09.05-serial.qcow2' index='1'/>
       <target dev='sda' bus='sata'/>
       <readonly/>
     </disk>
     <disk type="file" device="disk">
       <driver name="qemu" type="qcow2"/>
-      <source file="/var/lib/libvirt/images/master1.qcow2"/>
+      <source file="/var/lib/libvirt/sno-ztp/csr1kv.qcow2"/>
       <target dev="vda" bus="virtio"/>
     </disk>
     <controller type="usb" index="0" model="qemu-xhci" ports="15"/>
     <interface type="network">
-      <mac address='02:04:00:00:00:66'/>
-      <source network="ocp-cluster1"/>
+      <source network="default"/>
       <model type="virtio"/>
     </interface>
     <console type="pty"/>

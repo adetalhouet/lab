@@ -92,12 +92,13 @@ iptables --flush
 iptables --table nat --flush
 iptables --delete-chain
 iptables --table nat --delete-chain
-iptables --table nat --append POSTROUTING --out-interface enp35s0 -j MASQUERADE
+iptables --table nat --append POSTROUTING --out-interface br0 -j MASQUERADE
 iptables -A FORWARD --in-interface br-int -j ACCEPT
 
 yum install iptables-services -y
 systemctl enable iptables
 service iptables save
+
 ~~~
 
 ##### DHCP
@@ -127,9 +128,16 @@ systemctl enable haproxy
 ~~~
 ##### Firewall
 ~~~
-firewall-cmd --add-port=443/tcp --permanent
-firewall-cmd --add-port=6443/tcp --permanent
-firewall-cmd --add-port=80/tcp --permanent
+firewall-cmd --add-port=443/tcp --permanent --zone=libvirt
+firewall-cmd --add-port=6443/tcp --permanent --zone=libvirt
+firewall-cmd --add-port=80/tcp --permanent --zone=libvirt
+firewall-cmd --add-port=22623/tcp --permanent --zone=libvirt
+
+firewall-cmd --add-port=443/tcp --permanent --zone=public
+firewall-cmd --add-port=6443/tcp --permanent --zone=public
+firewall-cmd --add-port=80/tcp --permanent --zone=public
+firewall-cmd --add-port=22623/tcp --permanent --zone=public
+
 firewall-cmd --permanent --add-masquerade
 firewall-cmd --reload
 ~~~
@@ -152,22 +160,67 @@ systemctl enable libvirtd --now
 virsh net-define net.xml
 virsh net-start br-int
 virsh net-autostart br-int
+
 ~~~
+-- Add interface for CNV
+~~~
+virsh attach-interface --domain worker6 --type network --source default --model virtio --config --live
+~~~
+
 -- VM
 ~~~
+
+qemu-img create -f qcow2 /var/lib/libvirt/images/montreal-node1.qcow2 120G
+
+
+virsh destroy saskatoon-node1
+virsh destroy saskatoon-node2
+virsh destroy saskatoon-node3
+virsh undefine saskatoon-node1
+virsh undefine saskatoon-node2
+virsh undefine saskatoon-node3
+rm -rf /var/lib/libvirt/images/saskatoon*.qcow2
+virsh define node1.xml
+virsh define node3.xml
+virsh define node2.xml
+qemu-img create -f qcow2 /var/lib/libvirt/images/saskatoon-node1.qcow2 120G
+qemu-img create -f qcow2 /var/lib/libvirt/images/saskatoon-node2.qcow2 120G
+qemu-img create -f qcow2 /var/lib/libvirt/images/saskatoon-node3.qcow2 120G
+virsh start saskatoon-node1
+virsh start saskatoon-node2
+virsh start saskatoon-node3
+
+
+virsh destroy regina-node1
+virsh destroy regina-node2
+virsh destroy regina-node3
+virsh undefine regina-node1
+virsh undefine regina-node2
+virsh undefine regina-node3
+rm -rf /var/lib/libvirt/images/regina*.qcow2
+virsh define node1.xml
+virsh define node3.xml
+virsh define node2.xml
+qemu-img create -f qcow2 /var/lib/libvirt/images/regina-node1.qcow2 120G
+qemu-img create -f qcow2 /var/lib/libvirt/images/regina-node2.qcow2 120G
+qemu-img create -f qcow2 /var/lib/libvirt/images/regina-node3.qcow2 120G
+virsh start regina-node1
+virsh start regina-node2
+virsh start regina-node3
+
 virsh destroy master1
 virsh destroy master2
 virsh destroy master3
 virsh undefine master1
 virsh undefine master2
 virsh undefine master3
-rm -rf /var/lib/libvirt/images/*.qcow2
-qemu-img create -f qcow2 /var/lib/libvirt/images/master1.qcow2 200G
-qemu-img create -f qcow2 /var/lib/libvirt/images/master2.qcow2 200G
-qemu-img create -f qcow2 /var/lib/libvirt/images/master3.qcow2 200G
-virsh define master1.yaml
-virsh define master2.yaml
-virsh define master3.yaml
+rm -rf /var/lib/libvirt/images/master*.qcow2
+qemu-img create -f qcow2 /var/lib/libvirt/images/master1.qcow2 120G
+qemu-img create -f qcow2 /var/lib/libvirt/images/master2.qcow2 120G
+qemu-img create -f qcow2 /var/lib/libvirt/images/master3.qcow2 120G
+virsh define master1.xml
+virsh define master2.xml
+virsh define master3.xml
 virsh start master1
 virsh start master2
 virsh start master3
@@ -175,34 +228,47 @@ virsh start master3
 virsh destroy worker1
 virsh destroy worker3
 virsh destroy worker2
+virsh destroy worker4
+virsh destroy worker5
 virsh undefine worker1
 virsh undefine worker3
 virsh undefine worker2
-qemu-img create -f qcow2 /var/lib/libvirt/images/worker1.qcow2 200G
-qemu-img create -f qcow2 /var/lib/libvirt/images/worker2.qcow2 200G
-qemu-img create -f qcow2 /var/lib/libvirt/images/worker3.qcow2 200G
-qemu-img create -f raw /var/lib/libvirt/images/worker1-ocs.qcow2 500G
-qemu-img create -f raw /var/lib/libvirt/images/worker2-ocs.qcow2 500G
-qemu-img create -f raw /var/lib/libvirt/images/worker3-ocs.qcow2 500G
-virsh define worker3.yaml
-virsh define worker2.yaml
-virsh define worker1.yaml
+virsh undefine worker4
+virsh undefine worker5
+rm -rf /var/lib/libvirt/images/worker*.qcow2
+qemu-img create -f qcow2 /var/lib/libvirt/images/worker1.qcow2 120G
+qemu-img create -f qcow2 /var/lib/libvirt/images/worker2.qcow2 120G
+qemu-img create -f qcow2 /var/lib/libvirt/images/worker3.qcow2 120G
+qemu-img create -f qcow2 /var/lib/libvirt/images/worker4.qcow2 120G
+qemu-img create -f qcow2 /var/lib/libvirt/images/worker5.qcow2 120G
+qemu-img create -f raw /var/lib/libvirt/images/worker1-ocs.qcow2 150G
+qemu-img create -f raw /var/lib/libvirt/images/worker2-ocs.qcow2 150G
+qemu-img create -f raw /var/lib/libvirt/images/worker3-ocs.qcow2 150G
+qemu-img create -f raw /var/lib/libvirt/images/worker4-ocs.qcow2 150G
+qemu-img create -f raw /var/lib/libvirt/images/worker5-ocs.qcow2 150G
+virsh define worker5.xml
+virsh define worker4.xml
+virsh define worker3.xml
+virsh define worker2.xml
+virsh define worker1.xml
 virsh start worker1
 virsh start worker2
 virsh start worker3
+virsh start worker4
+virsh start worker5
 
 virsh destroy worker4
 virsh undefine worker4
 rm -rf /var/lib/libvirt/images/worker4.qcow2
 qemu-img create -f qcow2 /var/lib/libvirt/images/worker4.qcow2 200G
-virsh define worker4.yaml
+virsh define worker4.xml
 virsh start worker4
 
 virsh destroy worker5
 virsh undefine worker5
 rm -rf /var/lib/libvirt/images/worker5.qcow2
 qemu-img create -f qcow2 /var/lib/libvirt/images/worker5.qcow2 200G
-virsh define worker5.yaml
+virsh define worker5.xml
 virsh start worker5
 
 virsh destroy worker6
