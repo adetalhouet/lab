@@ -9,9 +9,11 @@
 ;
 ns1.adetalhouet.ca.		IN	A	10.0.0.249
 ;
-api.ca-central.adetalhouet.ca.		IN	A	192.168.123.186
-api-int.ca-central.adetalhouet.ca.	IN	A	192.168.123.186
-*.apps.ca-central.adetalhouet.ca.	IN	A	192.168.123.195
+pfsense.homelab.adetalhouet.ca.	IN	A	192.168.122.231
+;
+api.ca-central.adetalhouet.ca.		IN	A	192.168.123.131
+api-int.ca-central.adetalhouet.ca.	IN	A	192.168.123.131
+*.apps.ca-central.adetalhouet.ca.	IN	A	192.168.123.52
 master1.ca-central.adetalhouet.ca.	IN	A	192.168.123.10
 master2.ca-central.adetalhouet.ca.	IN	A	192.168.123.11
 master3.ca-central.adetalhouet.ca.	IN	A	192.168.123.12
@@ -21,15 +23,25 @@ worker3.ca-central.adetalhouet.ca.	IN	A	192.168.123.15
 worker4.ca-central.adetalhouet.ca.	IN	A	192.168.123.16
 worker5.ca-central.adetalhouet.ca.	IN	A	192.168.123.17
 ;
+api.fi-helsinki.adetalhouet.ca.		IN	A	148.251.12.17
+api-int.fi-helsinki.adetalhouet.ca.	IN	A	148.251.12.17
+*.apps.fi-helsinki.adetalhouet.ca.	IN	A	148.251.12.17
+fi-helsinki-node1.fi-helsinki.adetalhouet.ca.	IN	A	148.251.12.17
+;
 api.ca-montreal.adetalhouet.ca.		IN	A	192.168.123.142
 api-int.ca-montreal.adetalhouet.ca.	IN	A	192.168.123.142
 *.apps.ca-montreal.adetalhouet.ca.	IN	A	192.168.123.142
 ca-montreal-node1.ca-montreal.adetalhouet.ca.	IN	A	192.168.123.142
-
-api.ca-toronto.adetalhouet.ca.		IN	A	192.168.123.85
-api-int.ca-toronto.adetalhouet.ca.	IN	A	192.168.123.85
-*.apps.ca-toronto.adetalhouet.ca.	IN	A	192.168.123.85
-ca-toronto-node1.ca-toronto.adetalhouet.ca.	IN	A	192.168.123.85
+;
+api.ca-calgary.adetalhouet.ca.          IN      A       192.168.123.45
+api-int.ca-calgary.adetalhouet.ca.      IN      A       192.168.123.45
+*.apps.ca-calgary.adetalhouet.ca.       IN      A       192.168.123.45
+ca-calgary-node1.ca-calgary.adetalhouet.ca.     IN      A       192.168.123.45
+;
+api.ca-toronto.adetalhouet.ca.		IN	A	192.168.123.136
+api-int.ca-toronto.adetalhouet.ca.	IN	A	192.168.123.136
+*.apps.ca-toronto.adetalhouet.ca.	IN	A	192.168.123.136
+ca-toronto-node1.ca-toronto.adetalhouet.ca.	IN	A	192.168.123.136
 ;
 api.ca-regina.adetalhouet.ca.		IN	A	192.168.123.253
 api-int.ca-regina.adetalhouet.ca.	IN	A	192.168.123.253

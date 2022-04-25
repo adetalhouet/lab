@@ -1,0 +1,79 @@
+<network xmlns:dnsmasq='http://libvirt.org/schemas/network/dnsmasq/1.0' connections='14'>
+  <name>ocp-cluster</name>
+  <uuid>378810f8-aea4-400d-8ed9-41787b49723d</uuid>
+  <forward mode='nat'>
+    <nat>
+      <port start='1024' end='65535'/>
+    </nat>
+  </forward>
+  <bridge name='virbr1' stp='on' delay='0'/>
+  <mac address='52:54:00:c4:47:7d'/>
+  <dns>
+    <forwarder addr='127.0.0.1'/>
+    <host ip='192.168.123.10'>
+      <hostname>master1.homelab.adetalhouet.ca</hostname>
+    </host>
+    <host ip='192.168.123.11'>
+      <hostname>master2.homelab.adetalhouet.ca</hostname>
+    </host>
+    <host ip='192.168.123.12'>
+      <hostname>master3.homelab.adetalhouet.ca</hostname>
+    </host>
+    <host ip='192.168.123.13'>
+      <hostname>worker1.homelab.adetalhouet.ca</hostname>
+    </host>
+    <host ip='192.168.123.14'>
+      <hostname>worker2.homelab.adetalhouet.ca</hostname>
+    </host>
+    <host ip='192.168.123.15'>
+      <hostname>worker3.homelab.adetalhouet.ca</hostname>
+    </host>
+    <host ip='192.168.123.16'>
+      <hostname>worker4.homelab.adetalhouet.ca</hostname>
+    </host>
+    <host ip='192.168.123.17'>
+      <hostname>worker5.homelab.adetalhouet.ca</hostname>
+    </host>
+    <host ip='192.168.123.30'>
+      <hostname>master1.ca-saskatoon.adetalhouet.ca</hostname>
+    </host>
+    <host ip='192.168.123.31'>
+      <hostname>master2.ca-saskatoon.adetalhouet.ca</hostname>
+    </host>
+    <host ip='192.168.123.32'>
+      <hostname>master3.ca-saskatoon.adetalhouet.ca</hostname>
+    </host>
+    <host ip='192.168.123.20'>
+      <hostname>master1.ca-regina.adetalhouet.ca</hostname>
+    </host>
+    <host ip='192.168.123.21'>
+      <hostname>master2.ca-regina.adetalhouet.ca</hostname>
+    </host>
+    <host ip='192.168.123.22'>
+      <hostname>master3.ca-regina.adetalhouet.ca</hostname>
+    </host>
+  </dns>
+  <ip address='192.168.123.1' netmask='255.255.255.0'>
+    <dhcp>
+      <range start='192.168.123.2' end='192.168.123.254'/>
+      <host mac='02:04:00:00:00:66' name='master1.homelab.adetalhouet.ca' ip='192.168.123.10'/>
+      <host mac='02:04:00:00:00:67' name='master2.homelab.adetalhouet.ca' ip='192.168.123.11'/>
+      <host mac='02:04:00:00:00:68' name='master3.homelab.adetalhouet.ca' ip='192.168.123.12'/>
+      <host mac='02:04:00:00:00:69' name='worker1.homelab.adetalhouet.ca' ip='192.168.123.13'/>
+      <host mac='02:04:00:00:00:70' name='worker2.homelab.adetalhouet.ca' ip='192.168.123.14'/>
+      <host mac='02:04:00:00:00:71' name='worker3.homelab.adetalhouet.ca' ip='192.168.123.15'/>
+      <host mac='02:04:00:00:00:72' name='worker4.homelab.adetalhouet.ca' ip='192.168.123.16'/>
+      <host mac='02:04:00:00:00:73' name='worker5.homelab.adetalhouet.ca' ip='192.168.123.17'/>
+      <host mac='02:04:00:00:01:01' name='master1.ca-regina.adetalhouet.ca' ip='192.168.123.20'/>
+      <host mac='02:04:00:00:01:02' name='master2.ca-regina.adetalhouet.ca' ip='192.168.123.21'/>
+      <host mac='02:04:00:00:01:03' name='master3.ca-regina.adetalhouet.ca' ip='192.168.123.22'/>
+      <host mac='02:04:00:00:03:01' name='master1.ca-saskatoon.adetalhouet.ca' ip='192.168.123.30'/>
+      <host mac='02:04:00:00:03:02' name='master2.ca-saskatoon.adetalhouet.ca' ip='192.168.123.31'/>
+      <host mac='02:04:00:00:03:03' name='master3.ca-saskatoon.adetalhouet.ca' ip='192.168.123.32'/>
+    </dhcp>
+  </ip>
+  <dnsmasq:options>
+    <dnsmasq:option value='auth-server=adetalhouet.ca,'/>
+    <dnsmasq:option value='auth-zone=adetalhouet.ca'/>
+  </dnsmasq:options>
+</network>

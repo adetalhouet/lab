@@ -42,9 +42,9 @@ chmod -R 777 /mnt/nfs_shares
 systemctl start nfs-server.service
 systemctl enable nfs-server.service
 
-firewall-cmd --permanent --add-service=nfs
-firewall-cmd --permanent --add-service=rpc-bind
-firewall-cmd --permanent --add-service=mountd
+firewall-cmd --permanent --add-service=nfs --zone libvirt
+firewall-cmd --permanent --add-service=rpc-bind  --zone libvirt
+firewall-cmd --permanent --add-service=mountd --zone libvirt
 firewall-cmd --reload
 ~~~
 
@@ -61,6 +61,8 @@ systemctl restart nfs-utils.service
 mount -t nfs 148.251.12.17:/mnt/nfs_shares /mnt/nfs_shares
 echo "148.251.12.17:/mnt/nfs_shares /mnt/nfs_shares   nfs    auto  0  0" >> /etc/fstab
 ~~~
+
+mount -t nfs 192.168.123.1:/home/adetalhouet/Documents/etcd-backup/data /home/core/backup
 
 ##### vSwitch
 ~~~
@@ -191,12 +193,12 @@ virsh start saskatoon-node2
 virsh start saskatoon-node3
 
 
-virsh destroy regina-node1
-virsh destroy regina-node2
+virsh destroy regina-node1 
+virsh destroy regina-node2 
 virsh destroy regina-node3
-virsh undefine regina-node1
-virsh undefine regina-node2
-virsh undefine regina-node3
+virsh undefine regina-node1 --nvram
+virsh undefine regina-node2 --nvram
+virsh undefine regina-node3 --nvram
 rm -rf /var/lib/libvirt/images/regina*.qcow2
 virsh define node1.xml
 virsh define node3.xml
