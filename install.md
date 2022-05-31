@@ -136,6 +136,7 @@ firewall-cmd --add-port=80/tcp --permanent --zone=libvirt
 firewall-cmd --add-port=22623/tcp --permanent --zone=libvirt
 
 firewall-cmd --add-port=443/tcp --permanent --zone=public
+firewall-cmd --add-port=8000/tcp --permanent --zone=public
 firewall-cmd --add-port=6443/tcp --permanent --zone=public
 firewall-cmd --add-port=80/tcp --permanent --zone=public
 firewall-cmd --add-port=22623/tcp --permanent --zone=public
@@ -149,6 +150,8 @@ firewall-cmd --reload
 ~~~
 qemu-img create -f raw /var/lib/libvirt/images/worker1-ocs.qcow2 350G
 virsh attach-disk worker4 --source /var/lib/libvirt/images/worker4-ocs.qcow2 --target vdb --cache none
+qemu-img resize /var/lib/libvirt/images/worker3-ocs.qcow2 +150G
+virsh blockresize worker3 /var/lib/libvirt/images/worker3-ocs.qcow2
 ~~~
 -- install
 ~~~
