@@ -1,0 +1,33 @@
+<network xmlns:dnsmasq='http://libvirt.org/schemas/network/dnsmasq/1.0' connections='8'>
+  <name>ocp-cluster3</name>
+  <forward mode='nat'>
+    <nat>
+      <port start='1024' end='65535'/>
+    </nat>
+  </forward>
+  <dns>
+    <host ip='192.168.143.10'>
+      <hostname>master1.ca-saskatoon.adetalhouet.ca</hostname>
+    </host>
+    <host ip='192.168.143.11'>
+      <hostname>master2.ca-saskatoon.adetalhouet.ca</hostname>
+    </host>
+    <host ip='192.168.143.12'>
+      <hostname>master3.ca-saskatoon.adetalhouet.ca</hostname>
+    </host>
+  </dns>
+  <ip address='192.168.143.1' netmask='255.255.255.0'>
+    <dhcp>
+      <range start='192.168.143.2' end='192.168.143.254'/>
+      <host mac='02:04:00:00:03:01' name='master1.ca-saskatoon.adetalhouet.ca' ip='192.168.143.10'/>
+      <host mac='02:04:00:00:03:02' name='master2.ca-saskatoon.adetalhouet.ca' ip='192.168.143.11'/>
+      <host mac='02:04:00:00:03:03' name='master3.ca-saskatoon.adetalhouet.ca' ip='192.168.143.12'/>
+    </dhcp>
+  </ip>
+  <dnsmasq:options>
+    <dnsmasq:option value='auth-server=ca-saskatoon.adetalhouet.ca,'/>
+    <dnsmasq:option value='auth-zone=ca-saskatoon.adetalhouet.ca'/>
+    <dnsmasq:option value='host-record=api.ca-saskatoon.adetalhouet.ca,192.168.143.5'/>
+    <dnsmasq:option value='cname=*.apps.ca-saskatoon.adetalhouet.ca,api.ca-saskatoon.adetalhouet.ca'/>
+  </dnsmasq:options>
+</network>

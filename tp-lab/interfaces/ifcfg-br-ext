@@ -1,0 +1,6 @@
+DEVICE=br-ext
+TYPE=Bridge
+BOOTPROTO=dhcp
+ONBOOT=yes
+DNS1=127.0.0.1
+PEERDNS=no

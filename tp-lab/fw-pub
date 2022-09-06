@@ -1,0 +1,14 @@
+public (active)
+  target: default
+  icmp-block-inversion: no
+  interfaces: br-ext eno1np0
+  sources: 
+  services: cockpit dhcpv6-client mountd nfs rpc-bind ssh vnc-server
+  ports: 443/tcp 6443/tcp 1/tcp 100/tcp 6000/tcp 6001/tcp 1080/tcp 22623/tcp 80/tcp 8000/tcp 32274/tcp
+  protocols: 
+  forward: no
+  masquerade: no
+  forward-ports: 
+  source-ports: 
+  icmp-blocks: 
+  rich rules: 

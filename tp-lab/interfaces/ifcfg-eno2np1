@@ -1,0 +1,7 @@
+DEVICE=eno2np1
+ONBOOT=no
+BRIDGE=br-ext
+TYPE=Ethernet
+NAME="System eno2np1"
+UUID=de9904c8-9577-1a17-36b1-34b94132f06a
+USERS=adetalhouet

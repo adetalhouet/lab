@@ -1,0 +1,56 @@
+<network xmlns:dnsmasq='http://libvirt.org/schemas/network/dnsmasq/1.0' connections='8'>
+  <name>ocp-cluster1</name>
+  <uuid>ac52d240-cfc2-49a0-81be-0419d3a98185</uuid>
+  <forward mode='nat'>
+    <nat>
+      <port start='1024' end='65535'/>
+    </nat>
+  </forward>
+  <bridge name='virbr1' stp='on' delay='0'/>
+  <mac address='52:54:00:c4:47:7d'/>
+  <dns>
+    <host ip='192.168.123.10'>
+      <hostname>master1.ca-central.adetalhouet.ca</hostname>
+    </host>
+    <host ip='192.168.123.11'>
+      <hostname>master2.ca-central.adetalhouet.ca</hostname>
+    </host>
+    <host ip='192.168.123.12'>
+      <hostname>master3.ca-central.adetalhouet.ca</hostname>
+    </host>
+    <host ip='192.168.123.13'>
+      <hostname>worker1.ca-central.adetalhouet.ca</hostname>
+    </host>
+    <host ip='192.168.123.14'>
+      <hostname>worker2.ca-central.adetalhouet.ca</hostname>
+    </host>
+    <host ip='192.168.123.15'>
+      <hostname>worker3.ca-central.adetalhouet.ca</hostname>
+    </host>
+    <host ip='192.168.123.16'>
+      <hostname>worker4.ca-central.adetalhouet.ca</hostname>
+    </host>
+    <host ip='192.168.123.17'>
+      <hostname>worker5.ca-central.adetalhouet.ca</hostname>
+    </host>
+  </dns>
+  <ip address='192.168.123.1' netmask='255.255.255.0'>
+    <dhcp>
+      <range start='192.168.123.2' end='192.168.123.254'/>
+      <host mac='02:04:00:00:00:66' name='master1.ca-central.adetalhouet.ca' ip='192.168.123.10'/>
+      <host mac='02:04:00:00:00:67' name='master2.ca-central.adetalhouet.ca' ip='192.168.123.11'/>
+      <host mac='02:04:00:00:00:68' name='master3.ca-central.adetalhouet.ca' ip='192.168.123.12'/>
+      <host mac='02:04:00:00:00:69' name='worker1.ca-central.adetalhouet.ca' ip='192.168.123.13'/>
+      <host mac='02:04:00:00:00:70' name='worker2.ca-central.adetalhouet.ca' ip='192.168.123.14'/>
+      <host mac='02:04:00:00:00:71' name='worker3.ca-central.adetalhouet.ca' ip='192.168.123.15'/>
+      <host mac='02:04:00:00:00:72' name='worker4.ca-central.adetalhouet.ca' ip='192.168.123.16'/>
+      <host mac='02:04:00:00:00:73' name='worker5.ca-central.adetalhouet.ca' ip='192.168.123.17'/>
+    </dhcp>
+  </ip>
+  <dnsmasq:options>
+    <dnsmasq:option value='auth-server=ca-central.adetalhouet.ca,'/>
+    <dnsmasq:option value='auth-zone=ca-central.adetalhouet.ca'/>
+    <dnsmasq:option value='host-record=api.ca-central.adetalhouet.ca,192.168.123.5'/>
+    <dnsmasq:option value='cname=*.apps.ca-central.adetalhouet.ca,api.ca-central.adetalhouet.ca'/>
+  </dnsmasq:options>
+</network>

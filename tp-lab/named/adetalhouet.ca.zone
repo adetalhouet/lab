@@ -1,0 +1,63 @@
+@	IN	SOA	ns1.adetalhouet.ca.	root (
+			2019070700	; serial
+			3H		; refresh (3 hours)
+			30M		; retry (30 minutes)
+			2W		; expiry (2 weeks)
+			1W )		; minimum (1 week)
+	IN	NS	ns1.adetalhouet.ca.
+;
+;
+ns1.adetalhouet.ca.		IN	A	10.0.0.250
+;
+pfsense.homelab.adetalhouet.ca.	IN	A	192.168.122.231
+;
+lab-s2.adetalhouet.ca.	IN	A	135.181.134.223
+;
+api-server.hypershift-test.adetalhouet.ca.	IN	A	192.168.123.10
+*.apps.hypershift-test.adetalhouet.ca.	IN	A	192.168.123.20
+;
+api.ca-central.adetalhouet.ca.		IN	A	192.168.123.81
+api-int.ca-central.adetalhouet.ca.	IN	A	192.168.123.81
+*.apps.ca-central.adetalhouet.ca.	IN	A	192.168.123.181
+master1.ca-central.adetalhouet.ca.	IN	A	192.168.123.10
+master2.ca-central.adetalhouet.ca.	IN	A	192.168.123.11
+master3.ca-central.adetalhouet.ca.	IN	A	192.168.123.12
+worker1.ca-central.adetalhouet.ca.	IN	A	192.168.123.13
+worker2.ca-central.adetalhouet.ca.	IN	A	192.168.123.14
+worker3.ca-central.adetalhouet.ca.	IN	A	192.168.123.15
+worker4.ca-central.adetalhouet.ca.	IN	A	192.168.123.16
+worker5.ca-central.adetalhouet.ca.	IN	A	192.168.123.17
+;
+api.fi-helsinki.adetalhouet.ca.		IN	A	148.251.12.17
+api-int.fi-helsinki.adetalhouet.ca.	IN	A	148.251.12.17
+*.apps.fi-helsinki.adetalhouet.ca.	IN	A	148.251.12.17
+fi-helsinki-node1.fi-helsinki.adetalhouet.ca.	IN	A	148.251.12.17
+;
+api.ca-montreal.adetalhouet.ca.		IN	A	192.168.123.142
+api-int.ca-montreal.adetalhouet.ca.	IN	A	192.168.123.142
+*.apps.ca-montreal.adetalhouet.ca.	IN	A	192.168.123.142
+ca-montreal-node1.ca-montreal.adetalhouet.ca.	IN	A	192.168.123.142
+;
+api.ca-calgary.adetalhouet.ca.          IN      A       192.168.123.45
+api-int.ca-calgary.adetalhouet.ca.      IN      A       192.168.123.45
+*.apps.ca-calgary.adetalhouet.ca.       IN      A       192.168.123.45
+ca-calgary-node1.ca-calgary.adetalhouet.ca.     IN      A       192.168.123.45
+;
+api.ca-toronto.adetalhouet.ca.		IN	A	192.168.123.136
+api-int.ca-toronto.adetalhouet.ca.	IN	A	192.168.123.136
+*.apps.ca-toronto.adetalhouet.ca.	IN	A	192.168.123.136
+ca-toronto-node1.ca-toronto.adetalhouet.ca.	IN	A	192.168.123.136
+;
+api.ca-regina.adetalhouet.ca.		IN	A	192.168.123.253
+api-int.ca-regina.adetalhouet.ca.	IN	A	192.168.123.253
+*.apps.ca-regina.adetalhouet.ca.	IN	A	192.168.123.252
+master1.ca-regina.adetalhouet.ca.	IN	A	192.168.123.20
+master2.ca-regina.adetalhouet.ca.	IN	A	192.168.123.21
+master3.ca-regina.adetalhouet.ca.	IN	A	192.168.123.22
+;
+api.ca-saskatoon.adetalhouet.ca.	IN	A	192.168.123.109
+api-int.ca-saskatoon.adetalhouet.ca.	IN	A	192.168.123.109
+*.apps.ca-saskatoon.adetalhouet.ca.	IN	A	192.168.123.114
+master1.ca-saskatoon.adetalhouet.ca.	IN	A	192.168.123.30
+master2.ca-saskatoon.adetalhouet.ca.	IN	A	192.168.123.31
+master3.ca-saskatoon.adetalhouet.ca.	IN	A	192.168.123.32

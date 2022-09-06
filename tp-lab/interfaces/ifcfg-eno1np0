@@ -1,0 +1,7 @@
+DEVICE=eno1np0
+ONBOOT=yes
+BRIDGE=br-ext
+TYPE=Ethernet
+NAME="System eno1np0"
+UUID=f330f829-20cc-b829-67b0-18086a5fe6fa
+PEERDNS=no

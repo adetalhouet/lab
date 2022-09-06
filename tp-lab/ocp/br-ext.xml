@@ -1,0 +1,7 @@
+<network>
+  <name>br-ext</name>
+  <uuid>ac3da8dd-32fe-4331-ad0b-91e85abd2fb2</uuid>
+  <forward mode='bridge'/>
+  <bridge name='br-ext'/>
+</network>
+

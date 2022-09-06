@@ -1,0 +1,15 @@
+libvirt (active)
+  target: ACCEPT
+  icmp-block-inversion: no
+  interfaces: virbr0 virbr1
+  sources: 
+  services: dhcp dhcpv6 dns mountd nfs rpc-bind ssh tftp
+  ports: 443/tcp 6443/tcp 80/tcp 22623/tcp 8000/tcp 32274/tcp
+  protocols: icmp ipv6-icmp
+  forward: no
+  masquerade: no
+  forward-ports: 
+  source-ports: 
+  icmp-blocks: 
+  rich rules: 
+	rule priority="32767" reject
