@@ -1,0 +1,23 @@
+hostname r1
+!
+username lab privilege 15 password lab
+ip domain-name adetalhouet.ca
+crypto key generate rsa modulus 2048
+!
+interface GigabitEthernet1
+ip address dhcp
+no shut
+exit
+!
+netconf-yang feature candidate-datastore
+netconf-yang
+!
+no ip forward-protocol nd
+no ip http server
+no ip http secure-server
+no ip tftp source-interface GigabitEthernet1
+ip ssh server authenticate user
+!
+line vty 0 4
+login local
+exit
